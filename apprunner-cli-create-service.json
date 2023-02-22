@@ -1,0 +1,53 @@
+{
+    "ServiceName": "arn:aws:apprunner:ap-northeast-1:123456789000:service/apprunner-demo/714bd7cdaec648cf98ee9f6dce715c61",
+    "SourceConfiguration": {
+        "ImageRepository": {
+            "ImageIdentifier": "123456789000.dkr.ecr.ap-northeast-1.amazonaws.com/apprunner-demo:latest",
+            "ImageConfiguration": {
+                "Port": "3000",
+                "RuntimeEnvironmentVariables": {
+                    "TABLE_NAME": "apprunner-demo"
+                },
+                "RuntimeEnvironmentSecrets": {
+                    "NEXTAUTH_URL": "/apprunner-demo/NEXTAUTH_URL",
+                    "NEXTAUTH_SECRET": "/apprunner-demo/NEXTAUTH_SECRET",
+                    "COGNITO_CLIENT_ID": "/apprunner-demo/COGNITO_CLIENT_ID",
+                    "COGNITO_CLIENT_SECRET": "/apprunner-demo/COGNITO_CLIENT_SECRET",
+                    "COGNITO_ISSUER": "/apprunner-demo/COGNITO_ISSUER",
+                    "COGNITO_LOGOUT_ENDPOINT_URL": "/apprunner-demo/COGNITO_LOGOUT_ENDPOINT_URL"
+                }
+            },
+            "ImageRepositoryType": "ECR"
+        },
+        "AutoDeploymentsEnabled": true,
+        "AuthenticationConfiguration": {
+            "AccessRoleArn": "arn:aws:iam::123456789000:role/service-role/AppRunnerECRAccessRole"
+        }
+    },
+    "InstanceConfiguration": {
+        "Cpu": "1024",
+        "Memory": "2048",
+        "InstanceRoleArn": "arn:aws:iam::123456789000:role/apprunner-demo-instance-role"
+    },
+    "HealthCheckConfiguration": {
+        "Protocol": "TCP",
+        "Path": "/",
+        "Interval": 10,
+        "Timeout": 5,
+        "HealthyThreshold": 1,
+        "UnhealthyThreshold": 5
+    },
+    "AutoScalingConfigurationArn": "arn:aws:apprunner:ap-northeast-1:123456789000:autoscalingconfiguration/DefaultConfiguration/1/00000000000000000000000000000001",
+    "NetworkConfiguration": {
+        "EgressConfiguration": {
+            "EgressType": "DEFAULT"
+        },
+        "IngressConfiguration": {
+            "IsPubliclyAccessible": true
+        }
+    },
+    "ObservabilityConfiguration": {
+        "ObservabilityEnabled": false
+    }
+}
+
