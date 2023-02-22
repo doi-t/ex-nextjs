@@ -1,4 +1,5 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
+import { JWT } from "next-auth/jwt";
 import { getToken } from "next-auth/jwt"
 import CognitoProvider from "next-auth/providers/cognito";
 import { Issuer } from "openid-client";
@@ -16,7 +17,7 @@ const cognitoProvider = CognitoProvider({
 });
 
 // Ref. https://mseeeen.msen.jp/nextauth-cognito-token-refresh/
-async function refreshAccessToken(token) {
+async function refreshAccessToken(token: any): Promise<JWT> {
   try {
     const client_id = cognitoProvider.options?.clientId ?? "";
     const client_secret = cognitoProvider.options?.clientSecret ?? "";

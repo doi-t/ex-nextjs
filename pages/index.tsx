@@ -6,9 +6,10 @@ import { getSortedPostsData } from '../lib/posts';
 import Date from '../components/date';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import jwt_decode from "jwt-decode";
+import { GetStaticProps } from 'next';
 
 // getStaticProps only runs on the server-side.
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData();
   return {
     props: {
@@ -17,7 +18,15 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ allPostsData }) {
+export default function Home({ 
+  allPostsData 
+}: {
+  allPostsData: {
+    date: string
+    title: string
+    id: string
+  }[]
+}) {
   const { data: session, status } = useSession();
 
   if (status === "loading") {
