@@ -53,6 +53,8 @@ export default function Home({
           </ul>
           <h3 className={utilStyles.headingLg}>User custom attributes managed and provided by Cognito</h3>
           <p>custom:role: {'decoded_id_token.custom:role'}</p>
+          <p>Test <Link href="/root">Root</Link></p>
+          <p>Test <Link href="/child">Child</Link></p>
           <p>Test <Link href="/data-fetching-ssr">getServerSideProps</Link></p>
           <p>Test <Link href="/data-fetching-static">getStaticProps</Link></p>
           <button onClick={() => signOut({ callbackUrl: "signOut" })}>Sign out</button>
