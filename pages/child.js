@@ -29,7 +29,7 @@ const groupedByParentNode = {
     },
     {
       image: "/images/nodes/face-screamingin-fear.svg",
-      name: 'sunglasses',
+      name: 'Screaming',
       emotion: 'OMG',
       frequency: 'Low',
     },
@@ -49,25 +49,25 @@ const groupedByParentNode = {
   "Low": [
     {
       image: "/images/nodes/money-mouth-face.svg",
-      name: 'sunglasses',
+      name: 'Money',
       emotion: 'Serious',
       frequency: 'Low',
     },
     {
       image: "/images/nodes/tired-face.svg",
-      name: 'sunglasses',
+      name: 'Tired',
       emotion: 'Serious',
       frequency: 'Low',
     },
     {
       image: "/images/nodes/face-with-spiral-eyes.svg",
-      name: 'sunglasses',
+      name: 'Spiral Eyes',
       emotion: 'OMG',
       frequency: 'Low',
     },
     {
       image: "/images/nodes/thinking-face.svg",
-      name: 'sunglasses',
+      name: 'Thinking',
       emotion: 'Serious',
       frequency: 'Low',
     },

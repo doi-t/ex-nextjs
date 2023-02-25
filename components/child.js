@@ -1,33 +1,25 @@
 import Grid from '@mui/material/Grid';
-import Item from './item.js';
-import LeafNodes from './node.js';
+import Paper from '@mui/material/Paper';
+import Item from './item';
+import LeafNodes from './node';
+import AutoFillGrid from './auto-fill-grid';
 
 // Children represents a Grid contaner that manages one or more child nodes.
 export default function Children({ groupedByParentNode }) {
   return (
-    <Item>
-      <Grid container spacing={2}>
+      <Grid container>
         {Object.keys(groupedByParentNode).map(parentNode => (
-          <Grid key={parentNode} xs={12} md={6} lg={4}>
+          <Grid key={parentNode} xs={12} sm={6} md={4} lg={3} xl={2} spacing={1} padding={1}>
             <Item>
-              {parentNode}
-              <div style={styles.pin_container}>
+              <Paper sx={{ bgcolor: "#DEE1F9", m: 0.5, color: 'gray' }}>
+                {parentNode}
+              </Paper>
+              <AutoFillGrid>
                 <LeafNodes nodes={groupedByParentNode[parentNode]} />
-              </div>
+              </AutoFillGrid>
             </Item>
           </Grid>
         ))}
       </Grid>
-    </Item>
   )
 };
-
-const styles = {
-  pin_container: {
-  width: 'auto',
-  display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))',
-  gridAutoRows: 'auto',
-  justifyContent: 'center',
-  }
-}

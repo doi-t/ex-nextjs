@@ -9,77 +9,80 @@ const PrettyPrintJson = ({ data }) => {
 }
 
 export default function Root() {
-  const attribute1 = 'frequency'
-  const attribute2 = 'emotion'
+  const parentAttribute = data.parentAttribute
+  const childAttribute = data.childAttribute
 
-  debugNestedTreeNodes(sourceNodes, attribute1, attribute2)
+  debugNestedTreeNodes(data.sourceNodes, parentAttribute, childAttribute)
 
-  const groupedBy1stAttribute = groupBy(sourceNodes, attribute1);
+  const groupedBy1stAttribute = groupBy(data.sourceNodes, parentAttribute);
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ padding: 1, margin: 1 }}>
       <Item>
-        Root
+        <h1>Root</h1>
+        <Parents attributeForGrouping={childAttribute} groupedByParentNode={groupedBy1stAttribute} />
       </Item>
-      <Parents attributeForGrouping={attribute2} groupedByParentNode={groupedBy1stAttribute}/>
-      <PrettyPrintJson data={sourceNodes} />
     </Box>
   );
 }
 
-const sourceNodes = [
-  {
-    image: "/images/nodes/smiling-face-with-sunglasses.svg",
-    name: 'Sunglasses',
-    emotion: 'Fun',
-    frequency: 'High',
-  },
-  {
-    image: "/images/nodes/rolling-on-the-floor-laughing.svg",
-    name: 'Laughing',
-    emotion: 'Fun',
-    frequency: 'High',
-  },
-  {
-    image: "/images/nodes/face-screamingin-fear.svg",
-    name: 'sunglasses',
-    emotion: 'OMG',
-    frequency: 'Low',
-  },
-  {
-    image: "/images/nodes/fear-face.svg",
-    name: 'Fear',
-    emotion: 'OMG',
-    frequency: 'Low',
-  },
-  {
-    image: "/images/nodes/star-struck.svg",
-    name: 'Star',
-    emotion: 'Fun',
-    frequency: 'High',
-  },
-  {
-    image: "/images/nodes/money-mouth-face.svg",
-    name: 'sunglasses',
-    emotion: 'Serious',
-    frequency: 'Low',
-  },
-  {
-    image: "/images/nodes/tired-face.svg",
-    name: 'sunglasses',
-    emotion: 'Serious',
-    frequency: 'Low',
-  },
-  {
-    image: "/images/nodes/face-with-spiral-eyes.svg",
-    name: 'sunglasses',
-    emotion: 'OMG',
-    frequency: 'Low',
-  },
-  {
-    image: "/images/nodes/thinking-face.svg",
-    name: 'sunglasses',
-    emotion: 'Serious',
-    frequency: 'Low',
-  },
-]
+const data = {
+  parentAttribute: "frequency",
+  childAttribute: "emotion",
+  sourceNodes: [
+    {
+      image: "/images/nodes/smiling-face-with-sunglasses.svg",
+      name: 'Sunglasses',
+      emotion: 'Fun',
+      frequency: 'High',
+    },
+    {
+      image: "/images/nodes/rolling-on-the-floor-laughing.svg",
+      name: 'Laughing',
+      emotion: 'Fun',
+      frequency: 'High',
+    },
+    {
+      image: "/images/nodes/face-screamingin-fear.svg",
+      name: 'Screaming',
+      emotion: 'OMG',
+      frequency: 'Low',
+    },
+    {
+      image: "/images/nodes/fear-face.svg",
+      name: 'Fear',
+      emotion: 'OMG',
+      frequency: 'Low',
+    },
+    {
+      image: "/images/nodes/star-struck.svg",
+      name: 'Star',
+      emotion: 'Fun',
+      frequency: 'High',
+    },
+    {
+      image: "/images/nodes/money-mouth-face.svg",
+      name: 'Money',
+      emotion: 'Serious',
+      frequency: 'Low',
+    },
+    {
+      image: "/images/nodes/tired-face.svg",
+      name: 'Tired',
+      emotion: 'Serious',
+      frequency: 'Low',
+    },
+    {
+      image: "/images/nodes/face-with-spiral-eyes.svg",
+      name: 'Spiral Eyes',
+      emotion: 'OMG',
+      frequency: 'Low',
+    },
+    {
+      image: "/images/nodes/thinking-face.svg",
+      name: 'Thinking',
+      emotion: 'Serious',
+      frequency: 'Low',
+    },
+  ]
+}

@@ -1,25 +1,17 @@
 import Image from 'next/image';
-
-const styles = {
-  // https://dev.to/anobjectisa/build-a-pinterest-layout-in-reactjs-1938
-  node_image: {
-    margin: 'auto',
-  },
-}
+import Box from '@mui/material/Box';
 
 const Node = ({ node }) => {
   return (
-    <div style={{
-      ...styles.node_image,
-    }}>
+    <Box sx={{ margin: 'auto', padding: 1, textAlign: 'center' }}>
       <Image
         title={node.name}
         src={node.image}
-        height={108}
-        width={108}
+        height={64}
+        width={64}
       />
       {node.name}
-    </div>
+    </Box>
   );
 }
 
