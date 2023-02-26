@@ -12,7 +12,7 @@ export default function Root() {
   const parentAttribute = data.parentAttribute
   const childAttribute = data.childAttribute
 
-  debugNestedTreeNodes(data.sourceNodes, parentAttribute, childAttribute)
+  // debugNestedTreeNodes(data.sourceNodes, parentAttribute, childAttribute)
 
   const groupedBy1stAttribute = groupBy(data.sourceNodes, parentAttribute);
 
